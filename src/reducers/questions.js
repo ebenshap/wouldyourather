@@ -10,8 +10,6 @@ export default function questions (state = {}, action) {
         ...action.questions
       }
     case SAVE_QUESTION :
-        console.log("a presence")
-        console.log(state)
         return {
           ...state,
           // You can pass in more questions through the action
