@@ -26,8 +26,6 @@ class NewQuestionPage extends Component {
         author: this.props.authedUser
       }
 
-      // Taking a short cut and doing it the jquery way.
-      e.target.innerText = "Sending..."
       this.setState((prevState) => ({
         ...prevState,
         sending: true
