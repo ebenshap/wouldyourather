@@ -1,7 +1,6 @@
 import { SUBMIT_VOTE, SAVE_QUESTION } from '../actionMessages/questions'
 import { RECEIVE_USERS } from '../actionMessages/users'
 
-// State can be any type; string, array object, etc. It's totally up to you.
 export default function users (state = {}, action) {
   switch(action.type) {
 

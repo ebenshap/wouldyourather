@@ -36,8 +36,7 @@ class PollPage extends Component {
     </React.Fragment>
   }
 }
-// Interesting that object expansion works in function prototype too
-// before an actual object has even been defined.
+
 function mapStateToProps ({ authedUser, questions, users, dispatch }, props) {
   const { id } = props.match.params;
   return {

@@ -21,13 +21,8 @@ class LeaderBoard extends React.Component {
     
 }
 
-// And what is the logic of the parameters?
-// there's a naming convention here, right?
-// This is a good place to sort data
 function mapStateToProps ({ users, authedUser }) {
   
-  
-
   var usersArray = []
   Object.keys(users).map(item => {
     users[item].questionsNum = users[item].questions.length;

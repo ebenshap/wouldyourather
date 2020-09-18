@@ -27,7 +27,6 @@ class App extends Component {
         <div className='container'>
           <Nav />
           { 
-            // A series of ternary statements to redirect to the front page if not logged in.
             (this.props.loading === true ? "Loading..."
             : <div className="content-container">
                   <Route path='/' exact component={HomePage} />
@@ -43,19 +42,14 @@ class App extends Component {
   }
 }
 
-// And what is the logic of the parameters?
-// there's a naming convention here, right?
+
 function mapStateToProps ({ users, authedUser, questions }) {
   return {
     users,
     authedUser,
     questions,
     loading : (!Object.keys(users).length && !Object.keys(questions).length)
-    // returns an object that maps state to props
-    // would this ever occur automatically following a naming convention?
   }
 }
 
-// The connect() function connects a React component to a Redux store.
-// https://react-redux.js.org/api/connect
 export default connect(mapStateToProps)(App)

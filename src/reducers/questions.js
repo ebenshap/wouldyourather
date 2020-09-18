@@ -27,7 +27,6 @@ export default function questions (state = {}, action) {
             // print out the vote properties
             ...state[action.question ][action.vote],
             // and finally overwrite the votes.
-            // these needs to be improved.
             votes: [ ...state[action.question ][action.vote].votes, action.authedUser ]
           }
         }

@@ -48,8 +48,6 @@ class Nav extends Component {
   }
 }
 
-// And what is the logic of the parameters?
-// there's a naming convention here, right?
 function mapStateToProps ({ users, authedUser }) {
   return {
     users,
