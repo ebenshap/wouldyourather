@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './components/App'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
+// what does a reducer return?
+import reducer from './reducers'
+
+// This is merely a thunk.
+import middleware from './middleware'
+
+const store = createStore(reducer, middleware)
+
+// So I got it all set up. How do I start it?
+// I need to call in the users from the fake API so 
+// I can then display them in the login page.
 ReactDOM.render(
-  <React.StrictMode>
+  // It appears that putting the store on store adds dispatch method to the props property
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  </Provider>
+  , document.getElementById('root')
+)
