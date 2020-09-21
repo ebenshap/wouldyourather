@@ -7,10 +7,10 @@ import QuestionCardPoll from "./QuestionCardPoll"
 import QuestionCardResult from "./QuestionCardResult"
 
 function QuestionCardWrapper (props) {
-  var users = props.users;
-  var question = props.question;
-  var dispatch = props.dispatch;
-  var cardType = "navigation"
+  let users = props.users;
+  let question = props.question;
+  let dispatch = props.dispatch;
+  let cardType = "navigation"
   if(props.cardType) {
     cardType = props.cardType
   }

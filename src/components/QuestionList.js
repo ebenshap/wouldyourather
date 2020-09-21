@@ -12,9 +12,9 @@ class QuestionList extends Component {
   }
 
   toggleActive = (e) => {
-    var result = e.target.innerText.toLowerCase();
+    let result = e.target.innerText.toLowerCase();
     this.setState((prevState) => {
-        var returnValue ="answered"
+        let returnValue ="answered"
         if(result === "answered") {
           returnValue ="answered";
         } else if(result === "unanswered") {
@@ -39,8 +39,8 @@ class QuestionList extends Component {
           
         </p>
         { this.props.questionsArray.map(question => {
-          var show = 0;
-          var didAnswer = [...question.optionOne.votes, ...question.optionTwo.votes];
+          let show = 0;
+          let didAnswer = [...question.optionOne.votes, ...question.optionTwo.votes];
           didAnswer = didAnswer.filter(item => item === this.props.authedUser);
 
           if ( ( this.state.questionsToShow === "answered" && didAnswer.length ) ||
@@ -56,7 +56,7 @@ class QuestionList extends Component {
 
 function mapStateToProps ({ users, authedUser, questions }) {
   
-  var questionsArray = [];
+  let questionsArray = [];
   Object.keys(questions).map(item => {
     questionsArray.push(questions[item]);
   })

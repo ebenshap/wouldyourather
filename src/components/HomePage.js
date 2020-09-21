@@ -8,11 +8,6 @@ class HomePage extends Component {
     
   render() {
     
-    var userArray = [];
-    for(var item in this.props.users) {
-      userArray.push( this.props.users[item]);
-    }
-
     return (
       !this.props.authedUser? <Login/> : <QuestionList/>  
     )

@@ -18,7 +18,7 @@ class QuestionCardPoll extends Component {
   }
 
   buttonClick = (e) => {
-    var answer = "";
+    let answer = "";
     if ( this.state.option1 ) answer = "optionOne";
     if ( this.state.option2 ) answer = "optionTwo";
     if (answer) {
@@ -28,7 +28,7 @@ class QuestionCardPoll extends Component {
   }
 
   render() {
-    var question = this.props.question
+    let question = this.props.question
     return <div className="col col-2">      
     <p>Would you rather:</p>
     <p><input checked={this.state.option1} onChange={this.optionChange} value="option1" name="option" type="radio" />{question.optionOne.text}?</p>

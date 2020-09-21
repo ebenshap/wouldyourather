@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 class PollPage extends Component {
   
   render() {
-    var cardType="poll";
+    let cardType="poll";
     if(this.props.authedUser){
-      var didAnswer = [...this.props.question.optionOne.votes, 
+      let didAnswer = [...this.props.question.optionOne.votes, 
         ...this.props.question.optionTwo.votes].filter(item => item === this.props.authedUser ).length ;
       if(didAnswer) {
         cardType="pollResult";

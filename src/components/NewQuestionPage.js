@@ -20,7 +20,7 @@ class NewQuestionPage extends Component {
   buttonClick = (e) => {
     
     if(this.optionOne.value && this.optionTwo.value) {
-      var toSend = {
+      let toSend = {
         optionOneText: this.optionOne.value, 
         optionTwoText: this.optionTwo.value, 
         author: this.props.authedUser

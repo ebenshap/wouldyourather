@@ -2,12 +2,12 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default function QuestionCardResult (props) {
-  var question = props.question
-  var optionOneVotes = question.optionOne.votes.length;
-  var optionTwoVotes = question.optionTwo.votes.length
-  var total = optionOneVotes + optionTwoVotes;
-  var didVoteOne = 0;
-  var didVoteTwo = 0;
+  let question = props.question
+  let optionOneVotes = question.optionOne.votes.length;
+  let optionTwoVotes = question.optionTwo.votes.length
+  let total = optionOneVotes + optionTwoVotes;
+  let didVoteOne = 0;
+  let didVoteTwo = 0;
   if ( props.authedUser ) {
     didVoteOne = question.optionOne.votes.filter(item => item === props.authedUser).length
     didVoteTwo = question.optionTwo.votes.filter(item => item === props.authedUser).length

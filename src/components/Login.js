@@ -10,12 +10,7 @@ class Login extends Component {
   
   render() {
     
-    //console.log(this.props.users.array.forEach(element => {
-    //});)
-    var userArray = [];
-    for(var item in this.props.users) {
-      userArray.push( this.props.users[item]);
-    }
+    let userArray = Object.values(this.props.users);
 
     return (
       <div id="LoginCard">

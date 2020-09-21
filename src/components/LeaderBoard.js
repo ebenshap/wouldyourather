@@ -23,12 +23,12 @@ class LeaderBoard extends React.Component {
 
 function mapStateToProps ({ users, authedUser }) {
   
-  var usersArray = []
-  Object.keys(users).map(item => {
-    users[item].questionsNum = users[item].questions.length;
-    users[item].answersNum = Object.keys(users[item].answers).length;
-    users[item].total = users[item].questionsNum + users[item].answersNum;
-    usersArray.push(users[item]) ;
+  // Convert users object to array and add question/answer stat data.
+  let usersArray = Object.values(users).map(user => {
+    user.questionsNum = user.questions.length;
+    user.answersNum = Object.keys(user.answers).length;
+    user.total = user.questionsNum + user.answersNum;
+    return user ;
   })
 
   usersArray.sort((a,b,) => {
