@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {logOutUser} from "../actionMessages/authedUser"
@@ -6,7 +6,7 @@ import {logOutUser} from "../actionMessages/authedUser"
 class Nav extends Component {
 
   logUserOut =  (e) => {
-    this.props.dispatch(logOutUser())    
+    this.props.logOutUser();    
   }
 
   render() {
@@ -27,12 +27,12 @@ class Nav extends Component {
             New Question
           </NavLink>
         </li>
+        </React.Fragment> : "" }
         <li>
           <NavLink to='/leaderboard' activeClassName='active'>
             Leader Board
           </NavLink>
         </li>
-        </React.Fragment> : "" }
         
 
         <li className="greeting">
@@ -40,7 +40,9 @@ class Nav extends Component {
           <p className="imageInString">Hello { this.props.users[ this.props.authedUser ].name } 
           <img src={ this.props.users[ this.props.authedUser ].avatarURL } /> 
             <span>, <button onClick={this.logUserOut}>Logout</button></span></p> : 
-          "" }
+          <NavLink to='/login' activeClassName='active'>
+            Log in
+          </NavLink> }
           
         </li>
       </ul>
@@ -55,4 +57,4 @@ function mapStateToProps ({ users, authedUser }) {
   }
 }
 
-export default connect (mapStateToProps)(Nav);
+export default connect (mapStateToProps, { logOutUser } )(Nav);

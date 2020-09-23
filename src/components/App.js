@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoadingBar from 'react-redux-loading'
 import { connect } from 'react-redux'
 import Nav from "./Nav"
@@ -10,11 +10,16 @@ import PollPage from './PollPage'
 import NewQuestionPage from './NewQuestionPage'
 import LeaderBoard from './LeaderBoard'
 
+import Login from "./Login"
+
 class App extends Component {
 
   componentDidMount() {
     // dispatch is from the store but attached directly to props.
-    this.props.dispatch(handleInitialData())
+    // unless you use 'connect' to auto wrap the function in another
+    // function that will call it and pass it's return data to dispatch.
+    // That function is saved to props.
+    this.props.handleInitialData();
   }
 
   render() {
@@ -32,7 +37,8 @@ class App extends Component {
                   <Route path='/' exact component={HomePage} />
                   <Route path='/question/:id' component={PollPage} />
                   <Route path='/add' component={NewQuestionPage} />   
-                  <Route path='/leaderboard' component={LeaderBoard} />                 
+                  <Route path='/leaderboard' component={LeaderBoard} />
+                  <Route path='/login' component={Login} />                 
               </div>)
           } 
         </div>
@@ -52,4 +58,4 @@ function mapStateToProps ({ users, authedUser, questions }) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, {handleInitialData})(App)

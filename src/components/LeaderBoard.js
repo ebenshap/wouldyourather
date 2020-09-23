@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import questions from '../reducers/questions';
 import LeaderBoardCard from './LeaderBoardCard'
-import { Redirect } from 'react-router-dom'
 
-class LeaderBoard extends React.Component {
+class LeaderBoard extends Component {
 
   render() {
     
-    if(!this.props.authedUser) {
-      return <Redirect to="/" />
-    }
-
     return <React.Fragment><h2>Leader Board</h2>
     { this.props.usersArray.map( user => 
         <LeaderBoardCard key={user.id} user={user}  />

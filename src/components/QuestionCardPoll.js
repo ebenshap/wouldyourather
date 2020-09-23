@@ -22,8 +22,7 @@ class QuestionCardPoll extends Component {
     if ( this.state.option1 ) answer = "optionOne";
     if ( this.state.option2 ) answer = "optionTwo";
     if (answer) {
-      this.props.dispatch(handleSubmitVote(this.props.authedUser, 
-        this.props.question.id, answer ));
+      this.props.handleSubmitVote( this.props.authedUser, this.props.question.id, answer );
     } 
   }
 
@@ -42,11 +41,10 @@ class QuestionCardPoll extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser, dispatch }, props) {
+function mapStateToProps ({ authedUser }, props) {
   return {
-    authedUser,
-    dispatch
+    authedUser
   }
 }
 
-export default connect(mapStateToProps)(QuestionCardPoll)
+export default connect(mapStateToProps, { handleSubmitVote })(QuestionCardPoll)

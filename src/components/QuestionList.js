@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import authedUser from '../reducers/authedUser'
-import { NavLink } from 'react-router-dom'
 import QuestionCard from './QuestionCardWrapper'
-import { RECEIVE_USERS } from '../actionMessages/users'
 
 class QuestionList extends Component {
   
@@ -39,7 +36,6 @@ class QuestionList extends Component {
           
         </p>
         { this.props.questionsArray.map(question => {
-          let show = 0;
           let didAnswer = [...question.optionOne.votes, ...question.optionTwo.votes];
           didAnswer = didAnswer.filter(item => item === this.props.authedUser);
 
@@ -47,6 +43,7 @@ class QuestionList extends Component {
           ( this.state.questionsToShow === "unanswered" && !didAnswer.length ) )  {
             return <QuestionCard users ={this.props.users} question={question} key={question.id} />
           }
+          return "";
         })
       }
       </div>
@@ -56,11 +53,7 @@ class QuestionList extends Component {
 
 function mapStateToProps ({ users, authedUser, questions }) {
   
-  let questionsArray = [];
-  Object.keys(questions).map(item => {
-    questionsArray.push(questions[item]);
-  })
-
+  let questionsArray = Object.values(questions);
   questionsArray.sort((a, b) => b.timestamp - a.timestamp)
   
   return {users, authedUser, questionsArray};

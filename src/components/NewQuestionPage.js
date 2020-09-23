@@ -30,8 +30,7 @@ class NewQuestionPage extends Component {
         ...prevState,
         sending: true
       }) )
-      this.props.dispatch(handleSaveQuestion(toSend))
-      
+      this.props.handleSaveQuestion(toSend);
     }
     e.preventDefault();
   }
@@ -60,12 +59,11 @@ class NewQuestionPage extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser, dispatch, questions}) {
+function mapStateToProps ({ authedUser, questions}) {
   return {
     authedUser,
-    dispatch,
     questionsNum: Object.keys(questions)
   }
 }
 
-export default connect(mapStateToProps)(NewQuestionPage)
+export default connect(mapStateToProps, { handleSaveQuestion } )(NewQuestionPage)

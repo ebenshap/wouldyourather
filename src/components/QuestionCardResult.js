@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
 export default function QuestionCardResult (props) {
   let question = props.question

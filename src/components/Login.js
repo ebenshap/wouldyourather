@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { authUser } from '../actionMessages/authedUser'
 
 class Login extends Component {
   
   callThis = (e) => {
-    this.props.dispatch(authUser(this.selectVal.value))
+    this.props.authUser(this.selectVal.value);
   }
   
   render() {
-    
+    if(this.props.authedUser) {
+      if(this.props.questionId) {
+        let path = `question/${this.props.questionId}`
+        return <Redirect to={path} />
+      } else {
+        return <Redirect to="/" />
+      }
+    }
+
     let userArray = Object.values(this.props.users);
 
     return (
@@ -28,8 +37,12 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps ({ users, authedUser }) {
-  return {users, authedUser};
+function mapStateToProps ({ users, authedUser }, props) {
+  let questionId = ""
+  if(props.location.state) {
+    questionId = props.location.state.id;
+  }
+  return { authedUser, questionId, users };
 }
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps, { authUser })(Login)

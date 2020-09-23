@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { authUser } from '../actionMessages/authedUser'
-import Login from "./Login"
+import { Redirect } from 'react-router-dom'
 import QuestionList from "./QuestionList"
 
 class HomePage extends Component {
@@ -9,7 +8,7 @@ class HomePage extends Component {
   render() {
     
     return (
-      !this.props.authedUser? <Login/> : <QuestionList/>  
+      !this.props.authedUser? <Redirect to="/login" /> : <QuestionList/>  
     )
   }
 }
