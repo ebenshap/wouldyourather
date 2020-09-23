@@ -35,7 +35,7 @@ class App extends Component {
             (this.props.loading === true ? "Loading..."
             : <div className="content-container">
                   <Route path='/' exact component={HomePage} />
-                  <Route path='/question/:id' component={PollPage} />
+                  <Route path='/questions/:id' component={PollPage} />
                   <Route path='/add' component={NewQuestionPage} />   
                   <Route path='/leaderboard' component={LeaderBoard} />
                   <Route path='/login' component={Login} />                 

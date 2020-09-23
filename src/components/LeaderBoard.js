@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import LeaderBoardCard from './LeaderBoardCard'
 
 class LeaderBoard extends Component {
 
   render() {
+
+    if( !this.props.authedUser ) {
+      return <Redirect
+        to={{
+          pathname: "/login",
+          state: { redirectPath: "/leaderboard" }
+        }}
+      />
+    }
     
     return <React.Fragment><h2>Leader Board</h2>
     { this.props.usersArray.map( user => 

@@ -6,10 +6,11 @@ import { Link, Redirect } from 'react-router-dom'
 function PollPage (props) {
 
   if(!props.authedUser) {
+    let redirectPath = `/questions/${props.id}`;
     return <Redirect
         to={{
           pathname: "/login",
-          state: { id: props.id }
+          state: { redirectPath }
         }}
       />
   }

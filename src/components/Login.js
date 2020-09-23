@@ -11,8 +11,8 @@ class Login extends Component {
   
   render() {
     if(this.props.authedUser) {
-      if(this.props.questionId) {
-        let path = `question/${this.props.questionId}`
+      if(this.props.redirectPath) {
+        let path = this.props.redirectPath
         return <Redirect to={path} />
       } else {
         return <Redirect to="/" />
@@ -38,11 +38,11 @@ class Login extends Component {
 }
 
 function mapStateToProps ({ users, authedUser }, props) {
-  let questionId = ""
+  let redirectPath = ""
   if(props.location.state) {
-    questionId = props.location.state.id;
+    redirectPath = props.location.state.redirectPath;
   }
-  return { authedUser, questionId, users };
+  return { authedUser, redirectPath, users };
 }
 
 export default connect(mapStateToProps, { authUser })(Login)

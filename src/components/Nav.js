@@ -27,12 +27,12 @@ class Nav extends Component {
             New Question
           </NavLink>
         </li>
-        </React.Fragment> : "" }
         <li>
           <NavLink to='/leaderboard' activeClassName='active'>
             Leader Board
           </NavLink>
         </li>
+        </React.Fragment> : "" }
         
 
         <li className="greeting">
