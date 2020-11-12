@@ -15,7 +15,7 @@ class Login extends Component {
         let path = this.props.redirectPath
         return <Redirect to={path} />
       } else {
-        return <Redirect to="/" />
+        return <Redirect to={`${process.env.PUBLIC_URL}/` } />
       }
     }
 

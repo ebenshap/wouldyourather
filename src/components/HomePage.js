@@ -8,7 +8,7 @@ class HomePage extends Component {
   render() {
     
     return (
-      !this.props.authedUser? <Redirect to="/login" /> : <QuestionList/>  
+      !this.props.authedUser? <Redirect to={`${process.env.PUBLIC_URL}/login` } /> : <QuestionList/>  
     )
   }
 }

@@ -38,7 +38,7 @@ class NewQuestionPage extends Component {
   render() {
 
     if(this.state.redirect || !this.props.authedUser || (this.state.questionsNum !== this.props.questionsNum) ) {
-      return <Redirect to='/' />
+      return <Redirect to={`${process.env.PUBLIC_URL}/`} />
     }
     return  <React.Fragment> 
       <h2>Create new question</h2>

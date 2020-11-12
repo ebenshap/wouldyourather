@@ -10,8 +10,8 @@ class LeaderBoard extends Component {
     if( !this.props.authedUser ) {
       return <Redirect
         to={{
-          pathname: "/login",
-          state: { redirectPath: "/leaderboard" }
+          pathname: `${process.env.PUBLIC_URL}/login`,
+          state: { redirectPath: `${process.env.PUBLIC_URL}/leaderboard` }
         }}
       />
     }

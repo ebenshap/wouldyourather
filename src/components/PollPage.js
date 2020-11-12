@@ -6,10 +6,10 @@ import { Link, Redirect } from 'react-router-dom'
 function PollPage (props) {
 
   if(!props.authedUser) {
-    let redirectPath = `/questions/${props.id}`;
+    let redirectPath = `${process.env.PUBLIC_URL}/questions/${props.id}`;
     return <Redirect
         to={{
-          pathname: "/login",
+          pathname: `${process.env.PUBLIC_URL}/login`,
           state: { redirectPath }
         }}
       />
@@ -37,7 +37,7 @@ function PollPage (props) {
         users ={props.users} 
         question={question} 
         key={props.id} />
-          { !props.authedUser  ? <div id="fixedLogin" ><Link to="/">Login</Link></div> : ""}
+          { !props.authedUser  ? <div id="fixedLogin" ><Link to={`${process.env.PUBLIC_URL}/` } >Login</Link></div> : ""}
     </React.Fragment>
   }
   return <React.Fragment>

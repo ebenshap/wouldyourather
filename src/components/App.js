@@ -34,11 +34,11 @@ class App extends Component {
           { 
             (this.props.loading === true ? "Loading..."
             : <div className="content-container">
-                  <Route path='/' exact component={HomePage} />
-                  <Route path='/questions/:id' component={PollPage} />
-                  <Route path='/add' component={NewQuestionPage} />   
-                  <Route path='/leaderboard' component={LeaderBoard} />
-                  <Route path='/login' component={Login} />                 
+                  <Route path={`${process.env.PUBLIC_URL}/`} exact component={HomePage} />
+                  <Route path={`${process.env.PUBLIC_URL}/question/:id`} component={PollPage} />
+                  <Route path={`${process.env.PUBLIC_URL}/add`} component={NewQuestionPage} />   
+                  <Route path={`${process.env.PUBLIC_URL}/leaderboard`} component={LeaderBoard} />
+                  <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />                 
               </div>)
           } 
         </div>
