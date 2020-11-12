@@ -6,7 +6,7 @@ import { Link, Redirect } from 'react-router-dom'
 function PollPage (props) {
 
   if(!props.authedUser) {
-    let redirectPath = `${process.env.PUBLIC_URL}/questions/${props.id}`;
+    let redirectPath = `${process.env.PUBLIC_URL}/question/${props.id}`;
     return <Redirect
         to={{
           pathname: `${process.env.PUBLIC_URL}/login`,

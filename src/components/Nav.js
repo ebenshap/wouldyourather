@@ -40,7 +40,7 @@ class Nav extends Component {
           <p className="imageInString">Hello { this.props.users[ this.props.authedUser ].name } 
           <img src={ this.props.users[ this.props.authedUser ].avatarURL } /> 
             <span>, <button onClick={this.logUserOut}>Logout</button></span></p> : 
-          <NavLink to='/login' activeClassName='active'>
+          <NavLink to={`${process.env.PUBLIC_URL}/login`} activeClassName='active'>
             Log in
           </NavLink> }
           
